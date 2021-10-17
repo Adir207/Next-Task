@@ -1,6 +1,7 @@
 export function query(selector, scope) {
+	scope = scope || document;
 	if(scope === null) throw 'query scope cannot be null';
-	return (scope || document).querySelector(selector);
+	return scope.querySelector(selector);
 }
 
 export function listen(target, type, callback, capture) {

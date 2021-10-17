@@ -8,17 +8,7 @@ export default class Store {
 		let liveTodos;
 
 		this.getLocalStorage = () => {
-			return liveTodos || JSON.parse(localStorage.getItem(name) || fetch('https://jsonplaceholder.typicode.com/todos')
-			.then(
-				data => data.json()
-			).then(
-				res => {
-					res.forEach(element => {
-						this.insert(element);
-					});
-				}
-			)
-			.catch(err => console.log(err)));
+			return liveTodos || JSON.parse(localStorage.getItem(name) || '[]')
 		};
 
 		
